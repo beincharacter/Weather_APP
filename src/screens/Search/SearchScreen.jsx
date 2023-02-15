@@ -3,6 +3,10 @@ import "./SearchScreen.scss";
 import { FavoriteCitiesContext } from '../../contexts/FavoriteCitiesContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { RiHeart3Line } from 'react-icons/ri';
+import { BsArrowRight } from 'react-icons/bs';
+import { FaTemperatureLow, FaWind, FaWater, FaThermometerHalf, FaTachometerAlt } from 'react-icons/fa';
+
 const API_KEY = "bd5b7d71be447f2c70952f9d673cae73"
 
 const SearchScreen = () => {
@@ -40,10 +44,6 @@ const SearchScreen = () => {
       });
   };
 
-  const handleAddFavorite = () => {
-
-  };
-
   return (
     <div className='search_screen'>
       <h3>Search for a Location</h3>
@@ -60,12 +60,12 @@ const SearchScreen = () => {
             <h3>Current Weather</h3>
             <p>{currentWeather.name}, {currentWeather.sys.country}</p>
             <p>{currentWeather.weather[0].description}</p>
-            <p>Temperature: {currentWeather.main.temp} &deg;C</p>
-            <p>Humidity: {currentWeather.main.humidity}%</p>
-            <p>Wind Speed: {currentWeather.wind.speed} km/h</p>
-            <p>Sea Level: {currentWeather.main.sea_level} m</p>
-            <p>Pressure: {currentWeather.main.pressure} hPa</p>
-            <button onClick={() => addFavoriteCity(currentWeather.name)}>Add to favorites</button>
+            <p><FaTemperatureLow /> {currentWeather.main.temp} &deg;C</p>
+            <p><FaWater /> {currentWeather.main.humidity}%</p>
+            <p><FaWind /> {currentWeather.wind.speed} km/h</p>
+            <p><FaTachometerAlt /> {currentWeather.main.sea_level} m</p>
+            <p><FaThermometerHalf /> {currentWeather.main.pressure} hPa</p>
+            <button onClick={() => addFavoriteCity(currentWeather.name)}>Add to favorite</button>
             <button onClick={() => navigate('/details', {
               state: {
                 forecast: forecast,
@@ -75,23 +75,6 @@ const SearchScreen = () => {
           </div>
         </div>
       )}
-
-      {/* {forecast.length > 0 && (
-        <div>
-          <h2>5-day Weather Forecast</h2>
-          <ul>
-            {forecast.map((forecastData, index) => (
-              index % 8 === 0 && (
-                <li key={forecastData.dt}>
-                  <p>{new Date(forecastData.dt * 1000).toLocaleDateString()}</p>
-                  <p>{forecastData.weather[0].description}</p>
-                  <p>{forecastData.main.temp} &deg;C</p>
-                </li>
-              )
-            ))}
-          </ul>
-        </div>
-      )} */}
     </div>
   );
 };

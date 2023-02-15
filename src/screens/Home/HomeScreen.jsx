@@ -6,7 +6,6 @@ import SearchScreen from '../Search/SearchScreen';
 const HomeScreen = () => {
   return (
     <div className='home_screen'>
-        {/* <CurrentCity /> */}
         <SearchScreen />
     </div>
   )

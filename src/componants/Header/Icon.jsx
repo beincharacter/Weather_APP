@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import icon from "../../assets/logo.png";
 import "./Icon.scss";
 
 const Icon = () => {

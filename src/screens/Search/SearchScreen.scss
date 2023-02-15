@@ -1,6 +1,6 @@
 .search_screen {
     // background-color: lightgreen;
-    width: calc(100vw - 25vw);
+    width: calc(100vw - 35vw);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,9 +26,20 @@
             background-color: transparent;
             padding: 0 8px;
             font-size: 13px;
+            color: white;
+
+            &::placeholder {
+                color: white;
+            }
+
+            &:focus {
+                background-color: #2b2525be;
+            }
         }
         button {
             height: 100%;
+            margin: 0;
+            border-radius: 0;
             background-color: black;
             color: white;
             outline: none;
@@ -39,7 +50,6 @@
 
     .current_weather {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
