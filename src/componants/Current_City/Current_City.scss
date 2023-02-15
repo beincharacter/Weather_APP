@@ -1,14 +1,17 @@
 .current_city{
     // background-color: lightpink;
+    // position: fixed;
     height: 90vh;
-    width: 30vw;
+    width: 25vw;
     padding: 20px;
     border-right: 1px solid black;
 
     @media only screen and (max-width: 500px) {
         display: flex;
+        justify-content: space-between;
         width: 100vw;
         height: 150px;
+        height: auto;
         // background-color: yellow;
 
         * {
@@ -17,7 +20,7 @@
 
         &_weather {
             // background-color: lightyellow;
-            padding: 4px;
+            // padding: 4px;
             margin-bottom: 10px;
         }
         
@@ -30,7 +33,7 @@
 
     &_weather {
         // background-color: lightyellow;
-        padding: 10px;
+        // padding: 10px;
         height: fit-content;
         margin-bottom: 10px;
 

@@ -24,12 +24,6 @@ const CurrentCity = () => {
     }
   }, []);
 
-  // Load favorite locations from local storage
-  // useEffect(() => {
-  //   const storedFavorites = JSON.parse(localStorage.getItem('favoriteLocations')) || [];
-  //   setFavoriteLocations(storedFavorites);
-  // }, []);
-
   return (
     <div className='current_city'>
       {currentWeather && (
@@ -42,10 +36,10 @@ const CurrentCity = () => {
       )}
       {favoriteCities.length > 0 && (
         <div className='fav_locations'>
-          <h2>Your Favorite Locations</h2>
+          <h2>Favorite Locations</h2>
           <ul>
-            {favoriteCities.map(location => (
-              <li key={location.id}>{location}</li>
+            {favoriteCities.map((location, i) => (
+              <li key={location+i}>{location}</li>
             ))}
           </ul>
         </div>

@@ -15,11 +15,14 @@ const FavoriteCitiesProvider = ({ children }) => {
 
   const addFavoriteCity = (city) => {
     console.log(city, " in context")
-    if(!favoriteCities.includes(city)) {
-    const newFavorites = [...favoriteCities, city];
-    setFavoriteCities(newFavorites);
-    localStorage.setItem('favoriteCities', JSON.stringify(newFavorites));
+    if(favoriteCities.includes(city)) {
+      alert("already in favourite")
+    } else {
+      const newFavorites = [...favoriteCities, city];
+      setFavoriteCities(newFavorites);
+      localStorage.setItem('favoriteCities', JSON.stringify(newFavorites));
     }
+    
   };
 
   return (
