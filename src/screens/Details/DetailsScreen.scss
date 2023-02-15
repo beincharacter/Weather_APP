@@ -1,0 +1,38 @@
+.details_ {
+    background-color: lightgreen;
+    width: calc(100vw - 25vw);
+
+    @media only screen and (max-width: 500px) {
+        width: 100vw;
+    }
+
+    .current_weather{
+        margin: 10px;
+        width: 90%;
+
+        button {
+            // margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    .forecast {
+        background-color: pink;
+        overflow: scroll;
+        height: calc(100vh - 245px);
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &_list {
+            margin:10px;
+            width: 400px;
+        }
+    }
+}

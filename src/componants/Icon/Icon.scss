@@ -1,0 +1,15 @@
+.icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 20px;
+
+    .app_name {
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bolder;
+        padding: 10px;
+    }
+}

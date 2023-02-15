@@ -1,0 +1,46 @@
+.current_city{
+    // background-color: lightpink;
+    height: 90vh;
+    width: 30vw;
+    padding: 20px;
+    border-right: 1px solid black;
+
+    @media only screen and (max-width: 500px) {
+        display: flex;
+        width: 100vw;
+        height: 150px;
+        // background-color: yellow;
+
+        * {
+            font-size: 15px;
+        }
+
+        &_weather {
+            // background-color: lightyellow;
+            padding: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .fav_locations {
+            // background-color: aqua;
+            height: 100%;
+        }
+    }
+
+
+    &_weather {
+        // background-color: lightyellow;
+        padding: 10px;
+        height: fit-content;
+        margin-bottom: 10px;
+
+        * {
+            font-weight: bold;
+        }
+    }
+
+    .fav_locations {
+        // background-color: aqua;
+        height: calc(100% - 100px);
+    }
+}
