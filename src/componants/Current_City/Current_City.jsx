@@ -8,8 +8,7 @@ const API_KEY = "bd5b7d71be447f2c70952f9d673cae73"
 
 const CurrentCity = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
-  // const [favoriteLocations, setFavoriteLocations] = useState([]);
-  const { favoriteCities } = useContext(FavoriteCitiesContext);
+  const { favoriteCities, handleFavouriteCityWeather } = useContext(FavoriteCitiesContext);
   console.log(favoriteCities, " in curr")
 
   // Get current weather for user's current location
@@ -25,6 +24,7 @@ const CurrentCity = () => {
       });
     }
   }, []);
+  
 
   return (
     <div className='current_city'>
@@ -41,11 +41,12 @@ const CurrentCity = () => {
           <h2>Favorite Locations</h2>
           <ul>
             {favoriteCities.map((location, i) => (
-              <li key={location+i}>{location}</li>
+              <li key={location + i} onClick={() => handleFavouriteCityWeather(location)}>{location}</li>
             ))}
           </ul>
         </div>
       )}
+
     </div>
   );
 };

@@ -6,7 +6,8 @@ export const FavoriteCitiesContext = createContext();
 
 const FavoriteCitiesProvider = ({ children }) => {
   const [favoriteCities, setFavoriteCities] = useState([]);
-  console.log(favoriteCities);
+  const [favoriteCityWeather, setFavoriteCityWeather] = useState(null);
+  // console.log(favoriteCityWeather, " in conetct fav city weather");
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favoriteCities')) || [];
@@ -22,11 +23,14 @@ const FavoriteCitiesProvider = ({ children }) => {
       setFavoriteCities(newFavorites);
       localStorage.setItem('favoriteCities', JSON.stringify(newFavorites));
     }
-    
   };
 
+  const handleFavouriteCityWeather = (city) => {
+    setFavoriteCityWeather(city);
+  }
+
   return (
-    <FavoriteCitiesContext.Provider value={{ favoriteCities, addFavoriteCity }}>
+    <FavoriteCitiesContext.Provider value={{ favoriteCities, addFavoriteCity, favoriteCityWeather, handleFavouriteCityWeather }}>
       {children}
     </FavoriteCitiesContext.Provider>
   );

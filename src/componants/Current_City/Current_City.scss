@@ -45,5 +45,17 @@
     .fav_locations {
         // background-color: aqua;
         height: calc(100% - 100px);
+
+        ul {
+            li {
+                cursor: pointer;
+                padding: 2px;
+                width: fit-content;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.246);
+                    color: white;
+                }
+            }
+        }
     }
 }
