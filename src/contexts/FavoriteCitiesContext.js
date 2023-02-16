@@ -15,9 +15,9 @@ const FavoriteCitiesProvider = ({ children }) => {
   }, []);
 
   const addFavoriteCity = (city) => {
-    console.log(city, " in context")
+    
     if(favoriteCities.includes(city)) {
-      alert("already in favourite")
+      alert("already in favorite")
     } else {
       const newFavorites = [...favoriteCities, city];
       setFavoriteCities(newFavorites);
@@ -29,8 +29,15 @@ const FavoriteCitiesProvider = ({ children }) => {
     setFavoriteCityWeather(city);
   }
 
+  const removeFavoriteCity = (city) => {
+    const updatedFavorites = favoriteCities.filter(favCity => favCity !== city);
+    setFavoriteCities(updatedFavorites);
+    localStorage.setItem('favoriteCities', JSON.stringify(updatedFavorites));
+  };
+  
+
   return (
-    <FavoriteCitiesContext.Provider value={{ favoriteCities, addFavoriteCity, favoriteCityWeather, handleFavouriteCityWeather }}>
+    <FavoriteCitiesContext.Provider value={{ favoriteCities, addFavoriteCity, favoriteCityWeather, handleFavouriteCityWeather, removeFavoriteCity }}>
       {children}
     </FavoriteCitiesContext.Provider>
   );
