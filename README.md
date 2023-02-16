@@ -2,10 +2,13 @@
 
 <p>This is a weather app built with React that allows users to view the current weather and forecast for a location. Users can search for locations and save their favorite locations for quick access.</p>
 
+
+<h2> Technology used </h2>
 <ul>
-  <li>React</li>
   <li>OpenWeatherMap API</li>
+  <li>React</li>
   <li>React Context API</button></li>
+  <li>react-router-dom</li>
 </ul>
 
 <h2> Features </h2>
