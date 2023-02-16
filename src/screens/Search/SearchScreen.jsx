@@ -7,7 +7,8 @@ import { RiHeart3Line } from 'react-icons/ri';
 import { BsArrowRight } from 'react-icons/bs';
 import { FaTemperatureLow, FaWind, FaWater, FaThermometerHalf, FaTachometerAlt } from 'react-icons/fa';
 
-const API_KEY = "bd5b7d71be447f2c70952f9d673cae73"
+const API_KEY = "bd5b7d71be447f2c70952f9d673cae73";
+// const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
 const SearchScreen = () => {
 
@@ -60,11 +61,11 @@ const SearchScreen = () => {
             <h3>Current Weather</h3>
             <p>{currentWeather.name}, {currentWeather.sys.country}</p>
             <p>{currentWeather.weather[0].description}</p>
-            <p><FaTemperatureLow /> {currentWeather.main.temp} &deg;C</p>
-            <p><FaWater /> {currentWeather.main.humidity}%</p>
-            <p><FaWind /> {currentWeather.wind.speed} km/h</p>
-            <p><FaTachometerAlt /> {currentWeather.main.sea_level} m</p>
-            <p><FaThermometerHalf /> {currentWeather.main.pressure} hPa</p>
+            <p><FaTemperatureLow /> Temperature:  {currentWeather.main.temp} &deg;C</p>
+            <p><FaWater /> Humidity:  {currentWeather.main.humidity}%</p>
+            <p><FaWind /> Wind Speed:  {currentWeather.wind.speed} km/h</p>
+            <p><FaTachometerAlt /> Sea Level:  {currentWeather.main.sea_level} m</p>
+            <p><FaThermometerHalf /> Pressure:{currentWeather.main.pressure} hPa</p>
             <button onClick={() => addFavoriteCity(currentWeather.name)}>Add to favorite</button>
             <button onClick={() => navigate('/details', {
               state: {
