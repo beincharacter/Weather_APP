@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import "./SearchScreen.scss";
 import { FavoriteCitiesContext } from '../../contexts/FavoriteCitiesContext';
 import axios from 'axios';
@@ -18,7 +18,7 @@ const SearchScreen = () => {
   const [forecast, setForecast] = useState([]);
   const [searchError, setSearchError] = useState(false);
 
-  const { addFavoriteCity } = useContext(FavoriteCitiesContext);
+  const { addFavoriteCity, favoriteCityWeather } = useContext(FavoriteCitiesContext);
 
   const handleSearch = event => {
     event.preventDefault();
@@ -44,6 +44,34 @@ const SearchScreen = () => {
         setSearchError(true);
       });
   };
+
+  useEffect(() => {
+    if (favoriteCityWeather) {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${favoriteCityWeather}&appid=${API_KEY}&units=metric`)
+        .then(response => {
+          setCurrentWeather(response.data);
+          setSearchError(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setCurrentWeather(null);
+          setSearchError(true);
+        });
+
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${favoriteCityWeather}&appid=${API_KEY}&units=metric`)
+        .then(response => {
+          setForecast(response.data.list);
+          setSearchError(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setForecast([]);
+          setSearchError(true);
+        });
+    }
+  }, [favoriteCityWeather]);
+
+  
 
   return (
     <div className='search_screen'>
