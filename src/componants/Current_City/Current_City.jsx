@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import "./Current_City.scss";
 import { FavoriteCitiesContext } from '../../contexts/FavoriteCitiesContext';
 import axios from 'axios';
+
 const API_KEY = "bd5b7d71be447f2c70952f9d673cae73"
+// const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
 const CurrentCity = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
